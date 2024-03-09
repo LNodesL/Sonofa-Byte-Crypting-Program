@@ -22,15 +22,15 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    headerFile << "#ifndef ARMADA_H\n#define ARMADA_H\n\n";
-    headerFile << "unsigned char galleonData[" << buffer.size() << "] = {";
+    headerFile << "#ifndef Egg_H\n#define Egg_H\n\n";
+    headerFile << "unsigned char HatchlingData[" << buffer.size() << "] = {";
     for (size_t i = 0; i < buffer.size(); ++i) {
         headerFile << "0x" << std::hex << (int)buffer[i];
         if (i < buffer.size() - 1) headerFile << ", ";
         if ((i + 1) % 12 == 0) headerFile << "\n";
     }
     headerFile << "};\n\n";
-    headerFile << "#endif // ARMADA_H\n";
+    headerFile << "#endif // Egg_H\n";
 
     std::cout << "Conversion completed successfully." << std::endl;
 

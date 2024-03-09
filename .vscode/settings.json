@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "iterator": "cpp",
+    "type_traits": "cpp"
+  }
+}
