@@ -1,28 +1,32 @@
-# EspanaKrypt Builder
+# CryptDemo
 
-Folders:
-- dist/ contains the final EspanaKrypt.exe crypter program, and an example helloworld.exe program
-- source/ contains the source of the EspanaKrypt (crypter) program, Galleon (stub) program
-- utils/ contains any tools for the builder 
+A simple codebase to showcase a very primitive example of loading an exe & pushing to a tmp file and suspended process.
 
-
-Compile source/Armada.cpp to create the original PE.
+## Setup Example
+Compile Hello World program:
 ```
-g++ ./source/Armada.cpp -static -o ./tmp/Armada.exe
+gcc helloworld.cpp -static -o helloworld
 ```
 
-Convert Armada.exe to bytes array C++ header file, for an input file to become a header file for our source.
+Compile LoadAndRun.c:
 ```
-./utils/BTCH.exe ./tmp/Armada.exe ./source/Galleon.h
-```
-
-Compile source/EspanaKrypt.cpp
-```
-g++ ./source/EspanaKrypt.cpp -static -o ./dist/EspanaKrypt.exe
+gcc LoadAndRun.c -static -o LoadAndRun
 ```
 
-## Optional
+Test program:
+```
+./LoadAndRun.exe
+```
 
-You can modify BTCH (Bytes to C++ Header) in utils/source/BTCH.cpp if you want a custom header file in the future.
 
-You can modify helloworld.cpp in source directory for a new testing file. 
+## Dev Notes
+- My goal is not to give you a working builder & full crypter experience
+- My goal is to help beginners get started by seeing how an exe is converted to binary & pushed to a process
+- A lot more work was required to go from this type of prototype to a fully working build + crypter setup on my first project
+- Using this codebase you can expect to hit between 5-15/71 on a scanner like Virus Total
+- You can consider using function pointers, skCrypter or similar, and other tools to further advance your programs
+- Memory allocation or encryption should be the next thing you research after you understand process management from this demo
+- You may also want to look into how to generate a header file (see my git or HF thread) to include bin data
+- You can also look into how resource objects can be injected into a pre-compiled PE
+
+
