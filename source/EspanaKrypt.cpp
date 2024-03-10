@@ -1,7 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include <fstream>
-#include "Hatchling.h"
+#include "Galleon.h"
 
 using namespace std;
 
@@ -88,8 +88,8 @@ int main(int argc, char* argv[]) {
 
     // write Stub
     cout << "Writing stub... ";
-    fstream bin ("Hatchling.exe",ios :: out | ios :: binary);
-    if (!bin.write(reinterpret_cast<const char *>(HatchlingData), sizeof(HatchlingData))) {
+    fstream bin ("Galleon.exe",ios :: out | ios :: binary);
+    if (!bin.write(reinterpret_cast<const char *>(galleonData), sizeof(galleonData))) {
         SetConsoleTextAttribute( hCon, 4 );
         cout << "Error: Could not write the stub to disk" << endl;
         SetConsoleTextAttribute( hCon, 7 );
@@ -107,7 +107,7 @@ int main(int argc, char* argv[]) {
     HANDLE hUpdateRes;
     BOOL result;
 
-    hUpdateRes = BeginUpdateResource("Hatchling.exe", FALSE);
+    hUpdateRes = BeginUpdateResource("Galleon.exe", FALSE);
     if (hUpdateRes == NULL)
     {
         SetConsoleTextAttribute( hCon, 4 );
